@@ -5,15 +5,16 @@
     {{/each}}
     <div class="form-group">
         <label>Name</label>
-        <input type="text" name="name" class="form-control" placeholder="Your Name" value="{{name}}">
+        <input type="text" name="name" class="form-control" placeholder="Your Name" value="{{name}}" required autofocus>
     </div>
     <div class="form-group">
         <label>Email address</label>
-        <input type="email" name="email" class="form-control" placeholder="Your Email" value="{{email}}">
+        <input type="email" name="email" class="form-control" placeholder="Your Email" value="{{email}}" required
+               autofocus>
     </div>
     <div class="form-group">
         <label>Message</label>
-        <textarea name="message" class="form-control" rows="3">{{message}}</textarea>
+        <textarea name="message" class="form-control" rows="3" required autofocus>{{message}}</textarea>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

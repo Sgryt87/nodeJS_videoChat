@@ -3,7 +3,7 @@ var router = express.Router();
 
 var nodemailer = require('nodemailer');
 var config = require('../config');
-var transporter = nodemailer.createTransport(config);
+var transporter = nodemailer.createTransport(config.mailer);
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -34,14 +34,14 @@ router.route('/contact')
         } else {
             var mailOptions = {
                 from: 'Video Caller <no-reply@vcaller.com>',
-                to: '33310a5cd2dc8a',
+                to: req.body.email,
                 subject: 'New Message',
                 text: req.body.message
             };
 
             transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {
-                    return console.log(error);
+                    return console.log('email err:', error);
                 } else {
                     res.render('thank', {title: 'Online Video Caller'});
                 }
@@ -49,4 +49,14 @@ router.route('/contact')
         }
     });
 
+router.get('/login', function (req, res, next) {
+    res.render('login', {title: 'Login to your account'});
+});
+
+router.get('/register', function (req, res, next) {
+    res.render('register', {title: 'Register a new account'});
+});
+
 module.exports = router;
+
+
