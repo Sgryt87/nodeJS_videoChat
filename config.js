@@ -9,6 +9,7 @@ module.exports = {
             pass: "efb89b5e8ebf21"
         }
     },
-    conn: 'mongodb://127.0.0.1:27017/vcaller'
+    conn: 'mongodb://127.0.0.1:27017/vcaller',
+    sessionKey: 'NpOHwtpIf8~KbG6'
 };
 
