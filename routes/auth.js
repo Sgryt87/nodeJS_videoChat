@@ -10,7 +10,7 @@ router.route('/login')
         failureRedirect: '/login'
     }), function (req, res) {
         res.render('index', {
-                title: 'Login into your account',
+                title: 'Logged in!',
                 user: req.user
             }
         );
@@ -59,7 +59,7 @@ router.get('/logout', function (req, res, next) {
 router.get('/auth/facebook', passport.authenticate('facebook', {scope: 'email'}));
 router.get('/auth/facebook/callback', passport.authenticate('facebook', {
         successRedirect: '/',
-        failureRedirect: '/'
+        failureRedirect: '/err'
     }
 ));
 

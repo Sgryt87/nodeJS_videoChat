@@ -7,11 +7,11 @@ var transporter = nodemailer.createTransport(config.mailer);
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', {title: 'Online Video Caller'});
+    res.render('index', {title: 'Home Online Video Caller'});
 });
 
 router.get('/about', function (req, res, next) {
-    res.render('about', {title: 'Online Video Caller'})
+    res.render('about', {title: 'About Online Video Caller'})
 });
 
 router.route('/contact')
