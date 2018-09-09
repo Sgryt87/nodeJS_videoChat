@@ -14,7 +14,15 @@ var i = i + 1;`;
             if (!roomList[data.room]) {
 
                 roomList[data.room] = new ot.EditorSocketIOServer(str, [], data.room, function (socket, cb) {
-                    cb(true);
+                    var self = this;
+                    Task.findByIdAndUpdate(data.room, {content: self.document}, function (err) {
+                        if (!err) {
+                            return cb(true);
+                        } else {
+                            return cb(false);
+                        }
+
+                    });
                 });
             }
 

@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da188f40-b72f-4df6-99f0-4994bed5ffb0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/plugins/ot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/task.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/task.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socket-server.js" beforeDir="false" afterPath="$PROJECT_DIR$/socket-server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/task.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/task.hbs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +28,8 @@
         <counts>
           <entry key="css" value="4" />
           <entry key="gitignore" value="6" />
-          <entry key="hbs" value="32" />
-          <entry key="js" value="43" />
+          <entry key="hbs" value="33" />
+          <entry key="js" value="45" />
           <entry key="json" value="11" />
           <entry key="md" value="3" />
           <entry key="null/vcaller/tasks" value="1" />
@@ -44,9 +41,9 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="4" />
-          <entry key="Handlebars/Mustache" value="32" />
+          <entry key="Handlebars/Mustache" value="33" />
           <entry key="JSON" value="11" />
-          <entry key="JavaScript" value="44" />
+          <entry key="JavaScript" value="46" />
           <entry key="MONGO" value="8" />
           <entry key="Markdown" value="3" />
           <entry key="PLAIN_TEXT" value="6" />
@@ -57,8 +54,8 @@
         <counts>
           <entry key="css" value="59" />
           <entry key="gitignore" value="14" />
-          <entry key="hbs" value="3124" />
-          <entry key="js" value="6043" />
+          <entry key="hbs" value="3195" />
+          <entry key="js" value="6201" />
           <entry key="json" value="19" />
           <entry key="md" value="76" />
           <entry key="ts" value="1" />
@@ -69,9 +66,9 @@
         <counts>
           <entry key="CSS" value="59" />
           <entry key="HTML" value="13" />
-          <entry key="Handlebars/Mustache" value="3111" />
+          <entry key="Handlebars/Mustache" value="3182" />
           <entry key="JSON" value="19" />
-          <entry key="JavaScript" value="6076" />
+          <entry key="JavaScript" value="6234" />
           <entry key="Markdown" value="76" />
           <entry key="PLAIN_TEXT" value="14" />
           <entry key="TypeScript" value="1" />
@@ -100,51 +97,36 @@
         <entry file="file://$PROJECT_DIR$/models/task.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="48">
-              <caret line="3" column="52" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
+              <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/auth.js">
+        <entry file="file://$PROJECT_DIR$/routes/task.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+            <state relative-caret-position="241">
+              <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/task.hbs">
+        <entry file="file://$PROJECT_DIR$/socket-server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32807">
-              <caret line="2082" column="34" lean-forward="true" selection-start-line="2082" selection-start-column="34" selection-end-line="2082" selection-end-column="34" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ul#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#1646#1892#0#HTML" />
-              </folding>
+            <state relative-caret-position="262">
+              <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/socket-server.js">
+        <entry file="file://$PROJECT_DIR$/views/task.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/plugins/ot.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="2061" column="5" selection-end-line="2061" selection-end-column="5" />
+            <state relative-caret-position="227">
+              <caret line="2126" column="55" lean-forward="true" selection-start-line="2126" selection-start-column="55" selection-end-line="2126" selection-end-column="55" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#1646#1892#0#HTML" />
               </folding>
             </state>
           </provider>
@@ -184,6 +166,8 @@
       <find>require('ot</find>
       <find>require('ot')</find>
       <find>ot</find>
+      <find>findAndModify</find>
+      <find>find</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -205,17 +189,17 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/views/login.hbs" />
         <option value="$PROJECT_DIR$/passport.js" />
-        <option value="$PROJECT_DIR$/models/task.js" />
         <option value="$PROJECT_DIR$/views/index.hbs" />
         <option value="$PROJECT_DIR$/bin/www" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/routes/task.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/routes/auth.js" />
         <option value="$PROJECT_DIR$/public/plugins/ot.js" />
         <option value="$PROJECT_DIR$/views/layout.hbs" />
-        <option value="$PROJECT_DIR$/views/task.hbs" />
+        <option value="$PROJECT_DIR$/models/task.js" />
+        <option value="$PROJECT_DIR$/routes/task.js" />
         <option value="$PROJECT_DIR$/socket-server.js" />
+        <option value="$PROJECT_DIR$/views/task.hbs" />
       </list>
     </option>
   </component>
@@ -369,16 +353,15 @@
       <updated>1534255265788</updated>
       <workItem from="1534255267169" duration="381000" />
       <workItem from="1536289147373" duration="15143000" />
-      <workItem from="1536436083192" duration="18664000" />
+      <workItem from="1536436083192" duration="19610000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34188000" />
+    <option name="totallyTimeSpent" value="35134000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.73498964" visible="true" weight="0.18901454" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -564,13 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/task.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="52" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/layout.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-460">
@@ -585,20 +561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/task.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="23" selection-start-column="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/plugins/ot.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="426">
@@ -609,23 +571,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/task.hbs">
+    <entry file="file://$PROJECT_DIR$/routes/auth.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32807">
-          <caret line="2082" column="34" lean-forward="true" selection-start-line="2082" selection-start-column="34" selection-end-line="2082" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#1646#1892#0#HTML" />
-          </folding>
+        <state relative-caret-position="221">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/task.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/task.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/socket-server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        <state relative-caret-position="262">
+          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/task.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="2126" column="55" lean-forward="true" selection-start-line="2126" selection-start-column="55" selection-end-line="2126" selection-end-column="55" />
+          <folding>
+            <element signature="e#1646#1892#0#HTML" />
+          </folding>
         </state>
       </provider>
     </entry>
