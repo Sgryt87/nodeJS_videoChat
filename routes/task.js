@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var session = require('express-session');
 
 router.get('/createTask', function (req, res) {
     var newTask = new Task();
@@ -22,7 +23,7 @@ router.get('/task/:id', function (req, res) {
                 res.render('error');
             }
             if (data) {
-                res.render('task', {data: data, user: req.session.user});
+                res.render('task', {data: data, user: req.session.user, roomId: data.id});
             } else {
                 console.log('Task error', err);
                 res.render('error');

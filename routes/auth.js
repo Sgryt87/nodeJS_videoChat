@@ -11,7 +11,7 @@ router.route('/login')
         failureRedirect: '/login'
     }), function (req, res) {
 
-        req.session.user = req.user.name;
+        req.session.user = req.user;
         res.render('index', {
                 title: 'Logged in!',
                 user: req.session.user

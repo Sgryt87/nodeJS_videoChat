@@ -9,7 +9,7 @@
                     Live Chat |
                     <span class="pull-right" id="chatbox-username">
                         {{#if user}}
-                            {{user}}
+                            {{user.name}}
                         {{/if}}
                     </span>
                 </div>
@@ -29,6 +29,8 @@
         </div>
     </div>
 </div>
+<input type="hidden" id="roomId" value="{{roomId}}">
+
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/codemirror.min.js"></script>
 <script type="text/javascript"
@@ -47,21 +49,21 @@
         username = `User# ${userId}`;
         $('#chatbox-username').text(username);
     }
+
+    var roomId = $('#roomId').val();
+    socket.emit('joinRoom', {room: roomId});
+
     var userMessage = function (name, text) {
-        return (`
-                        <li class="media">
-                            <div class="media-body">
-                                <div class="media">
-                                    <div  class="media-body">
-                                        <b>
-                                        ${name}
-                                        </b> :
-                                        ${text}
-                                        <hr>
-                                    </div>
+        return (`<li class="media">
+                      <div class="media-body">
+                            <div class="media">
+                                <div  class="media-body">
+                                     <b>${name}</b> :${text}
+                                     <hr>
                                 </div>
-                            </div>
-                        </li>`)
+                             </div>
+                       </div>
+                 </li>`)
     };
 
     var sendMessage = function () {
