@@ -7,16 +7,16 @@ var transporter = nodemailer.createTransport(config.mailer);
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', {title: 'Home Online Video Caller'});
+    res.render('index', {title: 'Home Online Video Caller', user: req.session.user});
 });
 
 router.get('/about', function (req, res, next) {
-    res.render('about', {title: 'About Online Video Caller'})
+    res.render('about', {title: 'About Online Video Caller', user: req.session.user})
 });
 
 router.route('/contact')
     .get(function (req, res, next) {
-        res.render('contact', {title: 'Online Video Caller'})
+        res.render('contact', {title: 'Online Video Caller', user: req.session.user})
     })
     .post(function (req, res, next) {
         req.checkBody('name', 'Name is required').notEmpty();

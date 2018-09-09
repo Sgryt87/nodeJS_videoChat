@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var session = require('express-session');
 
 router.route('/login')
     .get(function (req, res, next) {
@@ -9,11 +10,14 @@ router.route('/login')
     .post(passport.authenticate('local', {
         failureRedirect: '/login'
     }), function (req, res) {
+
+        req.session.user = req.user.name;
         res.render('index', {
                 title: 'Logged in!',
-                user: req.user
+                user: req.session.user
             }
         );
+        // res.redirect({user: req.session.user}, '/');
     });
 
 router.route('/register')
@@ -52,6 +56,7 @@ router.route('/register')
     });
 
 router.get('/logout', function (req, res, next) {
+    req.session.destroy();
     req.logout();
     res.redirect('/');
 });
