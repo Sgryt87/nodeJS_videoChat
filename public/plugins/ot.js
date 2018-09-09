@@ -1,41 +1,4 @@
-<div>
-    <div class="row">
-        <div class="col-md-8" style="padding-left:25px;">
-            <textarea id="code-screen"></textarea>
-        </div>
-        <div class="col-md-4" id="chatbox" style="padding-right:25px;">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    Live Chat |
-                    <span class="pull-right" id="chatbox-username">
-                        {{#if user}}
-                            {{user.name}}
-                        {{/if}}
-                    </span>
-                </div>
-                <div class="panel-body">
-                    <ul class="media-list" style="height:100px;overflow-y:scroll" id="chatbox-listMessages"></ul>
-                </div>
-                <div class="panel-footer">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Enter message"
-                               id="userMessage">
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-primary" onclick="sendMessage()">Send</button>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<input type="hidden" id="roomId" value="{{roomId}}">
-
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/codemirror.min.js"></script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/mode/javascript/javascript.min.js"></script>
-<script type="text/javascript">/*
+/*
  *    /\
  *   /  \ ot 0.0.14
  *  /    \ http://operational-transformation.github.com
@@ -389,9 +352,9 @@ ot.TextOperation = (function () {
                 }
             } else {
                 throw new Error(
-                        "This shouldn't happen: op1: " +
-                        JSON.stringify(op1) + ", op2: " +
-                        JSON.stringify(op2)
+                    "This shouldn't happen: op1: " +
+                    JSON.stringify(op1) + ", op2: " +
+                    JSON.stringify(op2)
                 );
             }
         }
@@ -753,9 +716,9 @@ ot.WrappedOperation = (function (global) {
     WrappedOperation.prototype.invert = function () {
         var meta = this.meta;
         return new WrappedOperation(
-                this.wrapped.invert.apply(this.wrapped, arguments),
-                meta && typeof meta === 'object' && typeof meta.invert === 'function' ?
-                        meta.invert.apply(meta, arguments) : meta
+            this.wrapped.invert.apply(this.wrapped, arguments),
+            meta && typeof meta === 'object' && typeof meta.invert === 'function' ?
+                meta.invert.apply(meta, arguments) : meta
         );
     };
 
@@ -783,8 +746,8 @@ ot.WrappedOperation = (function (global) {
 
     WrappedOperation.prototype.compose = function (other) {
         return new WrappedOperation(
-                this.wrapped.compose(other.wrapped),
-                composeMeta(this.meta, other.meta)
+            this.wrapped.compose(other.wrapped),
+            composeMeta(this.meta, other.meta)
         );
     };
 
@@ -1213,7 +1176,7 @@ ot.CodeMirrorAdapter = (function (global) {
 
     function codemirrorDocLength(doc) {
         return doc.indexFromPos({line: doc.lastLine(), ch: 0}) +
-                doc.getLine(doc.lastLine()).length;
+            doc.getLine(doc.lastLine()).length;
     }
 
     // Converts a CodeMirror change array (as obtained from the 'changes' event
@@ -1264,18 +1227,18 @@ ot.CodeMirrorAdapter = (function (global) {
                     return indexFromPos({
                         line: pos.line + change.text.length - 1 - (change.to.line - change.from.line),
                         ch: (change.to.line < pos.line) ?
-                                pos.ch :
-                                (change.text.length <= 1) ?
-                                        pos.ch - (change.to.ch - change.from.ch) + sumLengths(change.text) :
-                                        pos.ch - change.to.ch + last(change.text).length
+                            pos.ch :
+                            (change.text.length <= 1) ?
+                                pos.ch - (change.to.ch - change.from.ch) + sumLengths(change.text) :
+                                pos.ch - change.to.ch + last(change.text).length
                     }) + sumLengths(change.removed) - sumLengths(change.text);
                 }
                 if (change.from.line === pos.line) {
                     return indexFromPos(change.from) + pos.ch - change.from.ch;
                 }
                 return indexFromPos(change.from) +
-                        sumLengths(change.removed.slice(0, pos.line - change.from.line)) +
-                        1 + pos.ch;
+                    sumLengths(change.removed.slice(0, pos.line - change.from.line)) +
+                    1 + pos.ch;
             };
         }
 
@@ -1287,17 +1250,17 @@ ot.CodeMirrorAdapter = (function (global) {
             var restLength = docEndLength - fromIndex - sumLengths(change.text);
 
             operation = new TextOperation()
-                    .retain(fromIndex)
-                    ['delete'](sumLengths(change.removed))
-                    .insert(change.text.join('\n'))
-                    .retain(restLength)
-                    .compose(operation);
+                .retain(fromIndex)
+                ['delete'](sumLengths(change.removed))
+                .insert(change.text.join('\n'))
+                .retain(restLength)
+                .compose(operation);
 
             inverse = inverse.compose(new TextOperation()
-                    .retain(fromIndex)
-                    ['delete'](sumLengths(change.text))
-                    .insert(change.removed.join('\n'))
-                    .retain(restLength)
+                .retain(fromIndex)
+                ['delete'](sumLengths(change.text))
+                .insert(change.removed.join('\n'))
+                .retain(restLength)
             );
 
             docEndLength += sumLengths(change.removed) - sumLengths(change.text);
@@ -1308,7 +1271,7 @@ ot.CodeMirrorAdapter = (function (global) {
 
     // Singular form for backwards compatibility.
     CodeMirrorAdapter.operationFromCodeMirrorChange =
-            CodeMirrorAdapter.operationFromCodeMirrorChanges;
+        CodeMirrorAdapter.operationFromCodeMirrorChanges;
 
     // Apply an operation to a CodeMirror instance.
     CodeMirrorAdapter.applyOperationToCodeMirror = function (operation, cm) {
@@ -1358,13 +1321,13 @@ ot.CodeMirrorAdapter = (function (global) {
     };
 
     CodeMirrorAdapter.prototype.onCursorActivity =
-            CodeMirrorAdapter.prototype.onFocus = function () {
-                if (this.changeInProgress) {
-                    this.selectionChanged = true;
-                } else {
-                    this.trigger('selectionChange');
-                }
-            };
+        CodeMirrorAdapter.prototype.onFocus = function () {
+            if (this.changeInProgress) {
+                this.selectionChanged = true;
+            } else {
+                this.trigger('selectionChange');
+            }
+        };
 
     CodeMirrorAdapter.prototype.onBlur = function () {
         if (!this.cm.somethingSelected()) {
@@ -1383,8 +1346,8 @@ ot.CodeMirrorAdapter = (function (global) {
         var ranges = [];
         for (var i = 0; i < selectionList.length; i++) {
             ranges[i] = new Selection.Range(
-                    cm.indexFromPos(selectionList[i].anchor),
-                    cm.indexFromPos(selectionList[i].head)
+                cm.indexFromPos(selectionList[i].anchor),
+                cm.indexFromPos(selectionList[i].head)
             );
         }
 
@@ -1448,9 +1411,9 @@ ot.CodeMirrorAdapter = (function (global) {
         var headPos = this.cm.posFromIndex(range.head);
 
         return this.cm.markText(
-                minPos(anchorPos, headPos),
-                maxPos(anchorPos, headPos),
-                {className: selectionClassName}
+            minPos(anchorPos, headPos),
+            maxPos(anchorPos, headPos),
+            {className: selectionClassName}
         );
     };
 
@@ -1525,25 +1488,25 @@ ot.SocketIOAdapter = (function () {
 
         var self = this;
         socket
-                .on('client_left', function (clientId) {
-                    self.trigger('client_left', clientId);
-                })
-                .on('set_name', function (clientId, name) {
-                    self.trigger('set_name', clientId, name);
-                })
-                .on('ack', function () {
-                    self.trigger('ack');
-                })
-                .on('operation', function (clientId, operation, selection) {
-                    self.trigger('operation', operation);
-                    self.trigger('selection', clientId, selection);
-                })
-                .on('selection', function (clientId, selection) {
-                    self.trigger('selection', clientId, selection);
-                })
-                .on('reconnect', function () {
-                    self.trigger('reconnect');
-                });
+            .on('client_left', function (clientId) {
+                self.trigger('client_left', clientId);
+            })
+            .on('set_name', function (clientId, name) {
+                self.trigger('set_name', clientId, name);
+            })
+            .on('ack', function () {
+                self.trigger('ack');
+            })
+            .on('operation', function (clientId, operation, selection) {
+                self.trigger('operation', operation);
+                self.trigger('selection', clientId, selection);
+            })
+            .on('selection', function (clientId, selection) {
+                self.trigger('selection', clientId, selection);
+            })
+            .on('reconnect', function () {
+                self.trigger('reconnect');
+            });
     }
 
     SocketIOAdapter.prototype.sendOperation = function (revision, operation, selection) {
@@ -1731,8 +1694,8 @@ ot.EditorClient = (function () {
 
     SelfMeta.prototype.transform = function (operation) {
         return new SelfMeta(
-                this.selectionBefore.transform(operation),
-                this.selectionAfter.transform(operation)
+            this.selectionBefore.transform(operation),
+            this.selectionAfter.transform(operation)
         );
     };
 
@@ -1744,15 +1707,15 @@ ot.EditorClient = (function () {
 
     OtherMeta.fromJSON = function (obj) {
         return new OtherMeta(
-                obj.clientId,
-                obj.selection && Selection.fromJSON(obj.selection)
+            obj.clientId,
+            obj.selection && Selection.fromJSON(obj.selection)
         );
     };
 
     OtherMeta.prototype.transform = function (operation) {
         return new OtherMeta(
-                this.clientId,
-                this.selection && this.selection.transform(operation)
+            this.clientId,
+            this.selection && this.selection.transform(operation)
         );
     };
 
@@ -1802,9 +1765,9 @@ ot.EditorClient = (function () {
         this.removeSelection();
         this.selection = selection;
         this.mark = this.editorAdapter.setOtherSelection(
-                selection,
-                selection.position === selection.selectionEnd ? this.color : this.lightColor,
-                this.id
+            selection,
+            selection.position === selection.selectionEnd ? this.color : this.lightColor,
+            this.id
         );
     };
 
@@ -1868,7 +1831,7 @@ ot.EditorClient = (function () {
             selection: function (clientId, selection) {
                 if (selection) {
                     self.getClientObject(clientId).updateSelection(
-                            self.transformSelection(Selection.fromJSON(selection))
+                        self.transformSelection(Selection.fromJSON(selection))
                     );
                 } else {
                     self.getClientObject(clientId).removeSelection();
@@ -1893,7 +1856,7 @@ ot.EditorClient = (function () {
                         var selection = clients[clientId].selection;
                         if (selection) {
                             self.clients[clientId].updateSelection(
-                                    self.transformSelection(Selection.fromJSON(selection))
+                                self.transformSelection(Selection.fromJSON(selection))
                             );
                         } else {
                             self.clients[clientId].removeSelection();
@@ -1911,11 +1874,11 @@ ot.EditorClient = (function () {
 
     EditorClient.prototype.addClient = function (clientId, clientObj) {
         this.clients[clientId] = new OtherClient(
-                clientId,
-                this.clientListEl,
-                this.editorAdapter,
-                clientObj.name || clientId,
-                clientObj.selection ? Selection.fromJSON(clientObj.selection) : null
+            clientId,
+            this.clientListEl,
+            this.editorAdapter,
+            clientObj.name || clientId,
+            clientObj.selection ? Selection.fromJSON(clientObj.selection) : null
         );
     };
 
@@ -1934,9 +1897,9 @@ ot.EditorClient = (function () {
             return client;
         }
         return this.clients[clientId] = new OtherClient(
-                clientId,
-                this.clientListEl,
-                this.editorAdapter
+            clientId,
+            this.clientListEl,
+            this.editorAdapter
         );
     };
 
@@ -1989,7 +1952,7 @@ ot.EditorClient = (function () {
         var operation = new WrappedOperation(textOperation, meta);
 
         var compose = this.undoManager.undoStack.length > 0 &&
-                inverse.shouldBeComposedWithInverted(last(this.undoManager.undoStack).wrapped);
+            inverse.shouldBeComposedWithInverted(last(this.undoManager.undoStack).wrapped);
         var inverseMeta = new SelfMeta(this.selection, selectionBefore);
         this.undoManager.add(new WrappedOperation(inverse, inverseMeta), compose);
         this.applyClient(textOperation);
@@ -2097,77 +2060,3 @@ ot.EditorClient = (function () {
 
     return EditorClient;
 }());
-</script>
-<script type="text/javascript" src="/socket.io/socket.io.js"></script>
-<script type="text/javascript">
-
-
-    var EditorClient = ot.EditorClient;
-    var SocketIoAdapter = ot.SocketIOAdapter;
-    var CodeMirrorAdapter = ot.CodeMirrorAdapter;
-
-    var socket = io.connect('http://localhost:3000');
-
-    var minLines = 3;
-    var startingValue = '';
-    for (var i = 0; i < minLines; i++) {
-        startingValue += '\n';
-    }
-
-    var editor = CodeMirror.fromTextArea(document.getElementById('code-screen'), {
-        lineNumbers: true,
-        theme: 'paraiso-dark',
-        gutter: true,
-        lineWrapping: true,
-        value: startingValue
-    });
-
-    var cmClient;
-
-    function init(str, revision, clients, serverAdapter) {
-        editor.setValue(str);
-        cmClient = window.cmClient = new EditorClient(
-                revision, clients, serverAdapter, new CodeMirrorAdapter(editor)
-        );
-    }
-
-    socket.on('doc', function (obj) {
-        init(obj.str, obj.revision, obj.clients, new SocketIoAdapter(socket))
-    });
-
-    var username = $('#chatbox-username').val();
-    if (username === '') {
-        var userId = Math.floor(Math.random() * 9999).toString();
-        username = `User# ${userId}`;
-        $('#chatbox-username').text(username);
-    }
-
-    var roomId = $('#roomId').val();
-    socket.emit('joinRoom', {room: roomId, username: username});
-
-    var userMessage = function (name, text) {
-        return (`<li class="media">
-                      <div class="media-body">
-                            <div class="media">
-                                <div  class="media-body">
-                                     <b>${name}</b>: ${text}
-                                     <hr>
-                                </div>
-                             </div>
-                       </div>
-                 </li>`)
-    };
-
-    var sendMessage = function () {
-        var userMessage = $('#userMessage').val();
-        socket.emit('chatMessage', {
-            message: userMessage,
-            username: username
-        });
-        $('#userMessage').val('');
-    };
-
-    socket.on('chatMessage', function (data) {
-        $('#chatbox-listMessages').append(userMessage(data.username, data.message));
-    });
-</script>

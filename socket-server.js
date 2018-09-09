@@ -1,11 +1,26 @@
 'use strict'
 
 var socketIO = require('socket.io');
+var ot = require('ot');
+var roomList = {};
 
 module.exports = function (server) {
+    var str = `Markdown Heading \n\n
+var i = i + 1;`;
+
     var io = socketIO(server);
     io.on('connection', function (socket) {
         socket.on('joinRoom', function (data) {
+            if (!roomList[data.room]) {
+
+                roomList[data.room] = new ot.EditorSocketIOServer(str, [], data.room, function (socket, cb) {
+                    cb(true);
+                });
+            }
+
+            roomList[data.room].addClient(socket);
+            roomList[data.room].setName(socket, data.username);
+
             socket.room = data.room;
             socket.join(data.room);
         });
